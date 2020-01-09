@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Personal Expense</title>
+
+    <!-- Importing Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!--  Importing Font from fontawesome.com  -->
+    <style>
+      .madewithlove {
+        text-align: center;
+        padding-top: 20px;
+      }
+    </style>
+
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+      integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <span class="navbar-brand mb-0 h1">Expense Web Application</span>
+      <span class="navbar-brand mb-0 h1" id="headingTotal"></span>
+    </nav>
+    <div class="container-fluid bg-light" style="min-height: 100vh">
+      <div class="container">
+        <div class="jumbotron mt-4">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Item Purchased"
+              id="inputDesc"
+              aria-label="Item Purchased"
+              aria-describedby="spent in rupee"
+            />
+            <div class="input-group-append">
+              <span class="input-group-text" id="spent in rupee">#</span>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="spent at">₹</span>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              id="inputAmount"
+              placeholder="Amount"
+              aria-label="Amount"
+              aria-describedby="spent at"
+            />
+            <div class="input-group-append">
+              <button
+                class="btn btn-outline-primary"
+                type="button"
+                id="btnAddExpense"
+              >
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <ul class="list-group" id="expenseTable"></ul>
+        </div>
+      </div>
+      <p class="madewithlove"><i class="fa fa-heart"></i> from Yashasvi</p>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
