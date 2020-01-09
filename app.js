@@ -1,4 +1,7 @@
 //get a heading element
+window.alert("Hey There! This is my attempt to build the application. Sorry for the
+  bugs, will fix them soon. Reviews are much appreciated :)");
+
 const headingEl = document.querySelector("#headingTotal");
 
 //get the reference to desc element
