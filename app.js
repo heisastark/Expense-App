@@ -47,25 +47,7 @@ function AddExpenseToTotal() {
   const someText = `Total: ${totalexpense}`;
   headingEl.textContent = someText;
 
-  //show the table here
-  // const data1 = allExpenses[0];
-  // const data2 = allExpenses[1];
-
-  // const data1Text = `${data1.amount} :: ${data1.desc}`;
-  // const data2Text = `${data2.amount} :: ${data2.desc}`;
-
-  // const tableText = `
-  //   <div>${data1Text}</div>
-  //   <div>${data2Text}</div>
-  // `;
-
-  const allExpenseHTML = allExpenses.map(expense => createListItem(expense));
-
-  const joinedAllExpenseHTML = allExpenseHTML.join("");
-  console.log(joinedAllExpenseHTML);
-
-  expenseTableEl.innerHTML = joinedAllExpenseHTML;
-  console.log(expenseTableEl);
+  RenderList(allExpenses);
 }
 
 //Get the btn element
@@ -81,6 +63,26 @@ function getDate(moment) {
   });
 }
 
+function deleteItem(dateValue) {
+  // const newArr = [];
+  // for(let i=0; i<allExpenses.length; i++){
+  //   if(allExpenses.moment.valueOf() !== dateValue){
+  //     newArr.push(allExpenses[i]);
+  //   }
+  // }
+
+  const newArr = allExpenses.filter(
+    expense => expense.moment.valueOf() !== dateValue
+  );
+  RenderList(newArr);
+}
+
+function RenderList(arrOfList) {
+  const allExpenseHTML = arrOfList.map(expense => createListItem(expense));
+  const joinedAllExpenseHTML = allExpenseHTML.join("");
+  expenseTableEl.innerHTML = joinedAllExpenseHTML;
+}
+
 //View Layer
 function createListItem({ desc, amount, moment }) {
   return `
@@ -93,7 +95,7 @@ function createListItem({ desc, amount, moment }) {
           <span class="px-5">
           ${amount}
           </span>
-          <button type="button" class="btn btn-outline-danger btn-sm">
+          <button type="button" class="btn btn-outline-danger btn-sm" onclick="deleteItem(${moment.valueOf()})">
             <i class="fas fa-trash-alt"></i>
           </button>
         </div>
